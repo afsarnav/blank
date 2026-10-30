@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLANK. — Custom Apparel Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&family=Caveat:wght@700&family=Archivo+Black&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="shell">
+
+  <header class="topbar">
+    <a class="brand" href="#" data-go="home">BLANK<span class="dot">.</span><small>Custom Apparel</small></a>
+    <nav class="tabs" id="tabs">
+      <a class="tab active" data-go="home" href="#home">Home</a>
+      <a class="tab" data-go="product" href="#product">Produk</a>
+      <a class="tab" data-go="custom" href="#custom">Custom</a>
+      <a class="tab" data-go="collection" href="#collection">Koleksi</a>
+      <a class="tab" data-go="contact" href="#contact">Kontak</a>
+    </nav>
+    <button class="btn btn-primary btn-sm" data-go="custom">Mulai Custom</button>
+  </header>
+
+  <main class="framebox">
+    <iframe id="frame" src="home.html" title="Konten toko BLANK"></iframe>
+  </main>
+
+  <nav class="dock" id="dock">
+    <a data-go="home" class="active" href="#home">
+      <svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>
+      Home
+    </a>
+    <a data-go="product" href="#product">
+      <svg viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5Z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>
+      Produk
+    </a>
+    <a data-go="custom" href="#custom">
+      <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>
+      Custom
+    </a>
+    <a data-go="collection" href="#collection">
+      <svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      Koleksi
+    </a>
+    <a data-go="contact" href="#contact">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Kontak
+    </a>
+  </nav>
+
+  <script>
+    (function () {
+      const frame = document.getElementById('frame');
+      const PAGES = ['home', 'product', 'custom', 'collection', 'contact'];
+
+      function switchPage(page, payload) {
+        if (!PAGES.includes(page)) page = 'home';
+        const q = payload ? '?' + new URLSearchParams(payload).toString() : '';
+        frame.src = page + '.html' + q;
+        document.querySelectorAll('.tab, .dock a').forEach(a => {
+          a.classList.toggle('active', a.dataset.go === page);
+        });
+        history.replaceState(null, '', '#' + page);
+      }
+
+      // Navigasi dari header/dock (shell sendiri)
+      document.addEventListener('click', function (e) {
+        const el = e.target.closest('[data-go]');
+        if (!el) return;
+        e.preventDefault();
+        switchPage(el.dataset.go, el.dataset.product ? { product: el.dataset.product, color: el.dataset.color || '' } : null);
+      });
+
+      // Pesan dari halaman di dalam iframe
+      window.addEventListener('message', function (e) {
+        const d = e.data;
+        if (d && d.type === 'blank:nav' && d.page) {
+          switchPage(d.page, d.payload);
+          frame.contentWindow.scrollTo(0, 0);
+        }
+      });
+
+      // Deep link sederhana via hash (#product dll.)
+      const initial = location.hash.replace('#', '');
+      switchPage(PAGES.includes(initial) ? initial : 'home', null);
+
+      // Sinkron bila hash berubah saat dokumen sama
+      window.addEventListener('hashchange', function () {
+        const p = location.hash.replace('#', '');
+        if (PAGES.includes(p)) switchPage(p, null);
+      });
+    })();
+  </script>
+</body>
+</html>

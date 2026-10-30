@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home — BLANK. Custom Apparel Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&family=Caveat:wght@700&family=Archivo+Black&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="wrap">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">Custom Apparel Studio — Bandung</span>
+        <h1>Dirancang <em>sesukamu,</em><br>diproduksi serasi.</h1>
+        <p class="lead">BLANK adalah studio custom apparel: pilih produk dasar — kaos, sweater, hoodie, topi, kaos kaki, hingga totebag — lalu tambahkan gambar, teks, atau coretan tanganmu sendiri. Kami yang produksi, mulai satu potong pun jadi.</p>
+        <div class="hero-cta">
+          <button class="btn btn-primary" data-go="custom">Mulai Custom</button>
+          <button class="btn btn-ghost" data-go="product">Lihat Produk</button>
+        </div>
+        <div class="hero-stats">
+          <div><b>12.400+</b><span>pesanan selesai</span></div>
+          <div><b>4.9/5</b><span>rating pembeli</span></div>
+          <div><b>3 hari</b><span>estimasi produksi</span></div>
+        </div>
+      </div>
+      <div class="hero-art" id="heroArt"></div>
+    </section>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>Custom Kaos <i>◆</i> Sablon Plastisol <i>◆</i> Bordir Premium <i>◆</i> DTF Full Color <i>◆</i> Mulai 1 Pcs <i>◆</i> Produksi 3 Hari <i>◆</i>&nbsp;</span>
+      <span>Custom Kaos <i>◆</i> Sablon Plastisol <i>◆</i> Bordir Premium <i>◆</i> DTF Full Color <i>◆</i> Mulai 1 Pcs <i>◆</i> Produksi 3 Hari <i>◆</i>&nbsp;</span>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <!-- VALUE PROPS -->
+    <section class="section">
+      <div class="section-head center">
+        <span class="eyebrow">Kenapa BLANK</span>
+        <h2 class="section-title">Sederhana di sisimu, <em>serius</em> di sisi kami</h2>
+        <p class="section-sub">Bahan yang jujur, tools desain yang mudah, dan produksi yang bisa diandalkan — tiga alasan pelanggan kembali.</p>
+      </div>
+      <div class="vgrid">
+        <div class="vprop">
+          <div class="vic"><svg viewBox="0 0 24 24"><path d="M4 20c2-6 5-9 8-11"/><path d="M12 9c1.8-1.8 4.2-2.4 6-2-0.4 1.8-1 4.2-2.8 6C13.5 14.6 11 15 9.5 13.5 8 12 8.5 11.5 12 9Z"/><path d="M3 21l3-3"/></svg></div>
+          <h3>Bahan Premium Jujur</h3>
+          <p>Katun combed 30s untuk kaos, fleece 320 gsm untuk hoodie, canvas 12 oz untuk totebag. Semua dijelaskan apa adanya di halaman produk, tanpa istilah yang membingungkan.</p>
+        </div>
+        <div class="vprop">
+          <div class="vic"><svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg></div>
+          <h3>Desain Sendiri, Langsung</h3>
+          <p>Editor custom kami siap pakai tanpa install aplikasi: unggah gambar, ketik teks, atau coret bebas langsung di atas foto produk. Selesai dalam hitungan menit.</p>
+        </div>
+        <div class="vprop">
+          <div class="vic"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></div>
+          <h3>Produksi Kilat</h3>
+          <p>Pesan hari ini, produksi mulai besok. Rata-rata selesai 3 hari kerja untuk jumlah di bawah 50 pcs. Butuh lebih cepat? Ada layanan kilat dengan biaya tertentu.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUK UNGGULAN -->
+    <section class="section" id="unggulan">
+      <div class="section-head">
+        <span class="eyebrow">Produk Unggulan</span>
+        <h2 class="section-title">Paling sering di-custom</h2>
+        <p class="section-sub">Empat produk favorit pelanggan kami. Klik "Custom" untuk langsung mengedit desainnya di Custom Studio, atau lihat semua produk lewat menu Produk.</p>
+      </div>
+      <div class="grid" id="featuredGrid"></div>
+      <p style="margin-top:26px;text-align:center">
+        <a class="linkline" data-go="product" href="#">Lihat semua produk lengkap →</a>
+      </p>
+    </section>
+
+    <!-- CARA PESAN -->
+    <section class="section">
+      <div class="section-head center">
+        <span class="eyebrow">Cara Pesan</span>
+        <h2 class="section-title">Tiga langkah, <em>jadi</em></h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>Pilih produk dasar</h3>
+          <p>Ada kaos, sweater, hoodie, topi, kaos kaki, sandal, dan totebag. Pilih warna dan ukuran sesuai kebutuhanmu.</p>
+        </div>
+        <div class="step">
+          <h3>Custom di studio</h3>
+          <p>Tambahkan gambar dari galerimu, tulis teks dengan font pilihan, atau coret bebas pakai kuas digital. Desain otomatis terpotong rapi di area cetak.</p>
+        </div>
+        <div class="step">
+          <h3>Checkout &amp; produksi</h3>
+          <p>Unduh desainmu, kirim via WhatsApp, kami review gratis lalu produksi dan kirim ke seluruh Indonesia.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEASER KOLEKSI -->
+    <section class="section">
+      <div class="section-head">
+        <span class="eyebrow">Koleksi Tema</span>
+        <h2 class="section-title">Butuh inspirasi?</h2>
+        <p class="section-sub">Kami sudah menyusun beberapa koleksi bertema — mulai dari batik Nusantara sampai gaming squad. Lengkapnya ada di menu Koleksi.</p>
+      </div>
+      <div class="grid grid-3" id="teaserGrid"></div>
+      <p style="margin-top:26px;text-align:center">
+        <a class="linkline" data-go="collection" href="#">Jelajahi semua koleksi →</a>
+      </p>
+    </section>
+
+    <!-- KONTAK + SOSIAL -->
+    <section class="section" id="kontak">
+      <div class="section-head">
+        <span class="eyebrow">Kontak</span>
+        <h2 class="section-title">Sapa kami <em>kapan saja</em></h2>
+        <p class="section-sub">Punya pertanyaan soal bahan, harga grosir, atau desain rumit? Tim kami siap membantu lewat kanal di bawah ini.</p>
+      </div>
+      <div class="cgrid">
+        <div class="ccard">
+          <div class="cic"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <h3>Studio</h3>
+          <p>Komplek Geo Asri No. A-12, Jl. Raden Mochtar, Sindanglaya, Cimenyan, Bandung Regency, West Java 40195</p>
+        </div>
+        <div class="ccard">
+          <div class="cic"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z"/></svg></div>
+          <h3>WhatsApp</h3>
+          <p><a href="https://wa.me/6281367836806" target="_blank" rel="noopener">0813-6783-6806</a><br>Balas cepat di jam kerja</p>
+        </div>
+        <div class="ccard">
+          <div class="cic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></div>
+          <h3>Email</h3>
+          <p><a href="mailto:afsarnavid2@gmail.com">afsarnavid2@gmail.com</a><br>Untuk penawaran &amp; kerja sama</p>
+        </div>
+        <div class="ccard">
+          <div class="cic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <h3>Jam Operasional</h3>
+          <p>Senin–Jumat 09.00–18.00<br>Sabtu 09.00–16.00</p>
+        </div>
+      </div>
+
+      <!-- Sosial media & marketplace -->
+      <div class="socialrow" id="socialRow"></div>
+
+      <div class="ctaband" style="margin-top:44px">
+        <h2>Siap bikin versi kamu?</h2>
+        <p>Buka Custom Studio sekarang — gratis, tanpa daftar, dan langsung lihat hasilnya di atas foto produk.</p>
+        <div class="hero-cta">
+          <button class="btn btn-primary" data-go="custom">Buka Custom Studio</button>
+          <button class="btn btn-ghost" style="color:#F5EFE1;border-color:rgba(229,211,175,.5)" data-go="contact">Halaman Kontak Lengkap</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="js/store.js"></script>
+  <script>
+    // Hero art: kaos dengan motif logo BLANK + chips mengambang
+    document.getElementById('heroArt').innerHTML = `
+      <div class="art-card">
+        ${productVisual('tee', '#f2f1ec', 'logo', 0.62)}
+        <div class="float-chip fc1"><span class="ic" style="background:var(--champ-soft)">✦</span> Teks &amp; gambar</div>
+        <div class="float-chip fc2"><span class="ic" style="background:var(--blue-soft)">✎</span> Coretan bebas</div>
+        <div class="float-chip fc3"><span class="ic" style="background:var(--champ-soft)">⤓</span> Kirim se-Indonesia</div>
+      </div>`;
+
+    // Sosial media & marketplace langsung di home
+    document.getElementById('socialRow').innerHTML =
+      socialLink('ig', BRAND.ig) +
+      socialLink('tt', BRAND.tiktok) +
+      socialLink('shopee', BRAND.shopee) +
+      `<a class="socialpill" href="https://wa.me/${BRAND.wa}" target="_blank" rel="noopener">
+        <span class="sic"><svg viewBox="0 0 24 24">${SOCIAL_ICONS.wa}</svg></span>
+        <span><b>WhatsApp</b><span>${BRAND.waPretty}</span></span>
+      </a>
+      <a class="socialpill" href="mailto:${BRAND.email}">
+        <span class="sic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+        <span><b>Email</b><span>${BRAND.email}</span></span>
+      </a>`;
+
+    // Teaser koleksi: ambil 3 koleksi pertama, tampilkan item pertamanya
+    document.getElementById('teaserGrid').innerHTML = COLLECTIONS.slice(0, 3)
+      .map((c, i) => collectionCard(c, c.items[i])).join('');
+
+    // Produk unggulan dari database (4 produk pertama) dengan fallback bawaan
+    (async function loadFeatured() {
+      const grid = document.getElementById('featuredGrid');
+      try {
+        const res = await fetch('/api/products?_=' + Date.now(), { cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        const items = (data.products || []).slice(0, 4);
+        if (!items.length) throw new Error('kosong');
+        grid.innerHTML = items.map(p => dbProductCard(p, false)).join('');
+      } catch (err) {
+        grid.innerHTML = PRODUCTS.filter(p => p.featured).map(productCard).join('');
+      }
+    })();
+  </script>
+</body>
+</html>

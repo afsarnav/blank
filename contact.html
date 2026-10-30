@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontak — BLANK. Custom Apparel Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&family=Caveat:wght@700&family=Archivo+Black&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <section class="section" style="padding-bottom:20px">
+      <div class="section-head">
+        <span class="eyebrow">Kontak</span>
+        <h2 class="section-title">Mari ngobrol <em>soal desainmu</em></h2>
+        <p class="section-sub">Pilih cara favoritmu untuk menghubungi kami. Respons tercepat lewat WhatsApp pada jam operasional (09.00–18.00 WIB).</p>
+      </div>
+
+      <div class="cgrid">
+        <div class="ccard">
+          <div class="cic"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <h3>Alamat Studio</h3>
+          <p>Komplek Geo Asri No. A-12, Jl. Raden Mochtar, Sindanglaya, Cimenyan, Bandung Regency, West Java 40195, Indonesia</p>
+        </div>
+        <div class="ccard">
+          <div class="cic"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z"/></svg></div>
+          <h3>WhatsApp</h3>
+          <p><a href="https://wa.me/6281367836806" target="_blank" rel="noopener">0813-6783-6806</a></p>
+        </div>
+        <div class="ccard">
+          <div class="cic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></div>
+          <h3>Email</h3>
+          <p><a href="mailto:afsarnavid2@gmail.com">afsarnavid2@gmail.com</a></p>
+        </div>
+        <div class="ccard">
+          <div class="cic"><svg viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg></div>
+          <h3>Instagram</h3>
+          <p><a href="https://instagram.com/blank.studio" target="_blank" rel="noopener">@blank.studio</a></p>
+        </div>
+      </div>
+
+      <!-- Sosial media & marketplace -->
+      <div class="socialrow" id="socialRow"></div>
+
+      <div class="csplit">
+        <div class="formcard">
+          <h3 style="font-family:var(--serif);font-size:23px;margin-bottom:6px">Kirim pesan cepat</h3>
+          <p style="font-size:13.5px;color:var(--muted);margin-bottom:20px">Isi form di bawah, nanti otomatis diteruskan ke WhatsApp kami.</p>
+          <form id="waForm">
+            <div class="field">
+              <label for="fnama">Nama</label>
+              <input id="fnama" type="text" placeholder="Namamu" required>
+            </div>
+            <div class="field">
+              <label for="fkebutuhan">Kebutuhan</label>
+              <select id="fkebutuhan">
+                <option>Custom satuan (1–11 pcs)</option>
+                <option>Produksi komunitas (12–100 pcs)</option>
+                <option>Produksi besar (100+ pcs)</option>
+                <option>Seragam kantor / divisi</option>
+                <option>Lainnya</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="fpesan">Pesan</label>
+              <textarea id="fpesan" placeholder="Ceritakan kebutuhanmu: produk, jumlah, target tanggal, dsb." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-wa btn-block">Kirim via WhatsApp</button>
+          </form>
+        </div>
+
+        <div class="mapcard">
+          <h3 style="font-family:var(--serif);font-size:23px;margin-bottom:6px">Jam Operasional</h3>
+          <ul class="hours">
+            <li><b>Senin – Jumat</b><span>09.00 – 18.00 WIB</span></li>
+            <li><b>Sabtu</b><span>09.00 – 16.00 WIB</span></li>
+            <li><b>Minggu / Libur</b><span>Tutup — chat tetap dibalas</span></li>
+          </ul>
+          <div style="margin-top:18px" aria-hidden="true">
+            <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="240" rx="14" fill="#EFE7D3"/>
+              <path d="M0 150 Q100 130 180 160 T400 150 L400 240 L0 240 Z" fill="#AEC4D4" opacity=".45"/>
+              <path d="M60 0 L90 240" stroke="#FFFDF8" stroke-width="14" fill="none"/>
+              <path d="M0 80 L400 60" stroke="#FFFDF8" stroke-width="12" fill="none"/>
+              <path d="M250 0 L280 240" stroke="#FFFDF8" stroke-width="10" fill="none"/>
+              <rect x="110" y="30" width="46" height="30" rx="5" fill="#E5D3AF"/>
+              <rect x="300" y="90" width="54" height="36" rx="5" fill="#E5D3AF"/>
+              <rect x="140" y="170" width="60" height="34" rx="5" fill="#E5D3AF"/>
+              <circle cx="205" cy="105" r="17" fill="#790D16" stroke="#FFFDF8" stroke-width="5"/>
+              <circle cx="205" cy="105" r="5" fill="#FFFDF8"/>
+              <text x="228" y="98" font-family="Georgia, serif" font-size="13" font-weight="bold" fill="#2B2118">BLANK. Studio</text>
+              <text x="228" y="115" font-family="Verdana, sans-serif" font-size="10" fill="#8B7A63">Jl. Raden Mochtar, Cimenyan</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" style="padding-bottom:0">
+        <div class="section-head">
+          <span class="eyebrow">FAQ</span>
+          <h2 class="section-title">Pertanyaan yang sering muncul</h2>
+        </div>
+        <details class="faq" open>
+          <summary>Berapa minimum order untuk custom?</summary>
+          <div class="faqa">Tidak ada minimum — satu potong pun kami produksi. Hanya saja untuk jumlah di bawah 12 pcs ada biaya setup sablon kecil yang sudah terlihat di estimasi harga Custom Studio.</div>
+        </details>
+        <details class="faq">
+          <summary>Bisa pakai desain sendiri, bukan dari studio?</summary>
+          <div class="faqa">Tentu. Siapkan file PNG/PDF resolusi tinggi (min. 150 dpi pada ukuran cetak), lalu kirim lewat WhatsApp. Tim kami akan cek gratis dan memberi rekomendasi metode cetak terbaik.</div>
+        </details>
+        <details class="faq">
+          <summary>Metode cetak apa yang tersedia?</summary>
+          <div class="faqa">Sablon plastisol (paling awet), DTF full color (untuk gradasi &amp; foto), dan bordir komputer (untuk logo topi/kemeja). Rekomendasi metode otomatis muncul saat kamu memilih jenis desain.</div>
+        </details>
+        <details class="faq">
+          <summary>Berapa lama produksi dan pengiriman?</summary>
+          <div class="faqa">Produksi rata-rata 3 hari kerja setelah desain disetujui. Pengiriman se-Indonesia via ekspedisi reguler 1–4 hari. Layanan kilat same-day tersedia untuk area Bandung dengan biaya tambahan.</div>
+        </details>
+        <details class="faq">
+          <summary>Apakah bisa retur kalau hasil tidak sesuai?</summary>
+          <div class="faqa">Ya. Jika hasil produksi berbeda dari mock-up yang disetujui (warna, posisi, ukuran cetak), kami produksi ulang tanpa biaya. Cek kurasi video unboxing membantu klaim berjalan cepat.</div>
+        </details>
+      </div>
+    </section>
+  </div>
+
+  <script src="js/store.js"></script>
+  <script>
+    document.getElementById('socialRow').innerHTML =
+      socialLink('ig', BRAND.ig) +
+      socialLink('tt', BRAND.tiktok) +
+      socialLink('shopee', BRAND.shopee);
+
+    document.getElementById('waForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const nama = document.getElementById('fnama').value.trim();
+      const kebutuhan = document.getElementById('fkebutuhan').value;
+      const pesan = document.getElementById('fpesan').value.trim();
+      const text = `Halo BLANK! Saya ${nama}.\nKebutuhan: ${kebutuhan}\nPesan: ${pesan}`;
+      window.open('https://wa.me/' + BRAND.wa + '?text=' + encodeURIComponent(text), '_blank');
+      toast('Membuka WhatsApp…');
+    });
+  </script>
+</body>
+</html>

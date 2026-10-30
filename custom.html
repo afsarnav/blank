@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Studio — BLANK. Custom Apparel Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&family=Caveat:wght@700&family=Archivo+Black&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="studiobody">
+
+  <div class="studio">
+
+    <!-- ===== PANEL KIRI: PRODUK ===== -->
+    <aside class="panel-left">
+      <div class="panel">
+        <div class="pgroup">
+          <h3><span class="n">1</span> Pilih Produk</h3>
+          <div class="tplgrid" id="tplGrid"></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="pgroup">
+          <h3><span class="n">2</span> Warna Produk <em class="cname" id="colorName">Putih</em></h3>
+          <div class="swatches" id="colorSwatches"></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="pgroup">
+          <h3><span class="n">3</span> Ukuran</h3>
+          <div class="sizerow" id="sizeRow"></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ===== TENGAH: STAGE ===== -->
+    <section class="stagewrap">
+      <div class="stage-scaler" id="scaler">
+        <div class="stage" id="stage">
+          <img id="tplImg" class="tplimg" alt="Produk" draggable="false">
+          <div class="clipzone" id="clipzone">
+            <div class="objlayer" id="objLayer"></div>
+            <canvas id="drawCanvas"></canvas>
+          </div>
+          <div class="printbox" id="printbox"></div>
+        </div>
+      </div>
+      <div class="toolbtns" id="toolBtns">
+        <button class="tool active" data-tool="select">
+          <svg viewBox="0 0 24 24"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg>
+          Pilih / Geser
+        </button>
+        <button class="tool" data-tool="text">
+          <svg viewBox="0 0 24 24"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
+          Teks
+        </button>
+        <button class="tool" data-tool="image">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          Gambar
+        </button>
+        <button class="tool" data-tool="emoji">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5s1.2 1.8 3.5 1.8 3.5-1.8 3.5-1.8"/><line x1="9" y1="9.5" x2="9.01" y2="9.5"/><line x1="15" y1="9.5" x2="15.01" y2="9.5"/></svg>
+          Emoji
+        </button>
+        <button class="tool" data-tool="draw">
+          <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>
+          Coret Bebas
+        </button>
+      </div>
+    </section>
+
+    <!-- ===== PANEL KANAN: TOOLS & PROPERTI ===== -->
+    <aside class="panel-right">
+
+      <!-- Panel: Gambar -->
+      <div class="panel" id="imgPanel" hidden>
+        <div class="pgroup">
+          <h3>🖼️ Tambah Gambar</h3>
+          <div class="uploadzone" id="uploadZone">
+            📤 Klik untuk unggah foto/logo<br><small>PNG, JPG, SVG — maks 5 MB</small>
+          </div>
+          <input type="file" id="fileInput" accept="image/*" hidden>
+          <p class="hint" style="margin-top:4px">Setelah masuk ke kanvas, gambar bisa digeser, dirotasi, dan diubah ukurannya.</p>
+        </div>
+      </div>
+
+      <!-- Panel: Emoji (Windows Emoji Unicode) -->
+      <div class="panel" id="emojiPanel" hidden>
+        <div class="pgroup">
+          <h3>😀 Pilih Emoji</h3>
+          <input type="search" class="emsearch" id="emojiSearch" placeholder="Cari emoji… (senyum, kucing, pizza)" autocomplete="off">
+          <div class="emtabs" id="emojiTabs"></div>
+          <div class="emgrid" id="emojiGrid"></div>
+          <div class="empicked" id="emojiPickedInfo" hidden></div>
+          <div class="propval" style="margin-top:12px"><span>Ukuran emoji baru</span><span id="emojiSizeVal">48 px</span></div>
+          <input type="range" class="propslider" id="emojiSize" min="24" max="120" value="48">
+          <p class="hint" style="margin-top:9px">Tampilan warna emoji mengikuti sistem perangkat (Windows, Android, iOS). Setelah masuk kanvas, ukurannya bisa diubah lagi.</p>
+        </div>
+      </div>
+
+      <!-- Panel: Teks -->
+      <div class="panel" id="textPanel" hidden>
+        <div class="pgroup">
+          <h3>🔤 Tambah Teks</h3>
+          <button class="btn btn-primary btn-block" id="addTextBtn">+ Tambah Teks</button>
+          <p class="hint" style="margin-top:11px">Klik dua kali teks di kanvas untuk mengedit isinya langsung.</p>
+        </div>
+      </div>
+
+      <!-- Panel: Coret -->
+      <div class="panel" id="drawPanel" hidden>
+        <div class="pgroup">
+          <h3>🖌️ Kuas</h3>
+          <div class="sw-inline" id="brushColors"></div>
+          <div class="propval"><span>Tebal kuas</span><span id="brushSizeVal">8 px</span></div>
+          <input type="range" class="propslider" id="brushSize" min="2" max="40" value="8">
+          <div class="btnrow" style="margin-top:13px">
+            <button class="mini" id="undoDraw">↶ Urungkan</button>
+            <button class="mini danger" id="clearDraw">Hapus Coretan</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel: Properti objek terpilih -->
+      <div class="panel" id="objPanel" hidden>
+        <div class="pgroup">
+          <h3>⚙️ Properti</h3>
+
+          <div id="textProps" hidden>
+            <select class="fontsel" id="fontSel">
+              <option value="'Jost', sans-serif">Jost (Minimalis)</option>
+              <option value="'Cormorant Garamond', serif">Cormorant (Serif Elegan)</option>
+              <option value="'Archivo Black', sans-serif">Archivo (Tebal)</option>
+              <option value="'Caveat', cursive">Caveat (Tulisan tangan)</option>
+            </select>
+            <div class="propval"><span>Ukuran font</span><span id="fontSizeVal">32 px</span></div>
+            <input type="range" class="propslider" id="fontSize" min="10" max="120" value="32">
+            <div class="stylebtns">
+              <button class="mini" id="btnBold">B</button>
+              <button class="mini" id="btnItalic"><i>I</i></button>
+              <button class="mini" id="btnColorPick">🎨 Warna</button>
+            </div>
+            <input type="color" class="colorwell" id="textColor" value="#2B2118" hidden>
+          </div>
+
+          <div id="emojiProps" hidden>
+            <div class="propval"><span>Ukuran emoji</span><span id="emojiObjSizeVal">48 px</span></div>
+            <input type="range" class="propslider" id="emojiObjSize" min="20" max="140" value="48">
+          </div>
+
+          <div id="imageProps" hidden>
+            <div class="propval"><span>Transparansi</span><span id="opacityVal">100%</span></div>
+            <input type="range" class="propslider" id="imgOpacity" min="10" max="100" value="100">
+            <div class="btnrow" style="margin-bottom:11px">
+              <button class="mini" id="btnFlip">⇄ Balik</button>
+              <button class="mini" id="btnResetSize">↺ Ukuran Awal</button>
+            </div>
+          </div>
+
+          <div class="btnrow">
+            <button class="mini" id="btnLayerUp">⬆ Ke Atas</button>
+            <button class="mini" id="btnLayerDown">⬇ Ke Bawah</button>
+          </div>
+          <div class="btnrow" style="margin-top:8px">
+            <button class="mini" id="btnDup">⧉ Duplikat</button>
+            <button class="mini danger" id="btnDel">🗑 Hapus</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ringkasan & aksi -->
+      <div class="panel">
+        <div class="pgroup">
+          <h3>💰 Estimasi</h3>
+          <div class="pricebox">
+            <div class="lbl" id="sumProd">Kaos · M · Putih</div>
+            <div class="val" id="sumPrice">Rp 75.000</div>
+            <div class="note" id="sumNote">Termasuk 1 potong, desain bebas</div>
+          </div>
+          <div class="sumstack">
+            <button class="btn btn-dark btn-block" id="btnDownload">⬇ Unduh Desain (PNG)</button>
+            <button class="btn btn-wa btn-block" id="btnOrder">Pesan via WhatsApp</button>
+            <button class="btn btn-ghost btn-block btn-sm" data-go="product">Lihat Produk Lain</button>
+          </div>
+          <p class="hint" style="margin-top:12px"><b>Tips:</b> desain yang melewati batas area otomatis terpotong — persis seperti hasil produksi. Geser objek dengan mouse/jari, tarik titik oranye untuk mengubah ukuran, dan titik hitam untuk memutar. Hapus dengan tombol <b>Delete</b>.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script src="js/store.js"></script>
+  <script src="js/emoji.js"></script>
+  <script src="js/custom.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produk — BLANK. Custom Apparel Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&family=Caveat:wght@700&family=Archivo+Black&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <section class="section" style="padding-bottom:20px">
+      <div class="section-head">
+        <span class="eyebrow">Semua Produk</span>
+        <h2 class="section-title">Katalog produk <em>custom</em></h2>
+        <p class="section-sub">Katalog ini tersambung langsung ke database toko — setiap produk yang ditambah, diubah, atau dihapus lewat Mode Kelola akan tampil di sini secara permanen. Harga adalah harga dasar sebelum tambahan opsi desain.</p>
+      </div>
+
+      <!-- Bilah pencarian + filter + kelola -->
+      <div class="catalogbar">
+        <div class="searchrow">
+          <input type="search" id="searchInput" placeholder="Cari nama produk…" autocomplete="off">
+        </div>
+        <div class="adminbar">
+          <button class="chip adminchip" id="adminToggle" type="button">Mode Kelola</button>
+          <button class="chip addchip active" id="addBtn" type="button" hidden>＋ Tambah Produk</button>
+        </div>
+      </div>
+      <div style="display:flex;gap:9px;flex-wrap:wrap;margin-bottom:12px" id="filterRow"></div>
+      <p style="font-size:12.5px;color:var(--muted);font-weight:500;letter-spacing:.06em;margin-bottom:22px" id="countInfo">Memuat katalog…</p>
+
+      <div class="grid" id="productGrid"></div>
+
+      <div class="ctaband" style="margin-top:50px">
+        <h2>Tidak menemukan yang dicari?</h2>
+        <p>Kami menerima produksi pakaian di luar katalog — polo shirt, jersey, sarung bantal, sampai seragam tim lengkap. Konsultasi gratis lewat WhatsApp.</p>
+        <div class="hero-cta">
+          <button class="btn btn-primary" data-go="custom">Mulai Custom</button>
+          <button class="btn btn-ghost" style="color:#F5EFE1;border-color:rgba(229,211,175,.5)" data-go="contact">Tanya Dulu</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Modal form tambah/edit produk -->
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+      <div class="modal-head">
+        <h3 id="formTitle">Tambah Produk</h3>
+        <button class="modal-x" id="modalX" type="button" aria-label="Tutup">✕</button>
+      </div>
+      <form id="productForm" novalidate>
+        <div class="modal-body">
+          <div class="formerr" id="formErr"></div>
+          <div class="formgrid">
+            <div class="field full">
+              <label for="fNama">Nama produk <span style="color:var(--wine)">*</span></label>
+              <input type="text" id="fNama" maxlength="120" placeholder="mis. Kaos Cotton Combed Custom" required>
+              <span class="ferr"></span>
+            </div>
+            <div class="field full">
+              <label for="fDeskripsi">Deskripsi produk</label>
+              <textarea id="fDeskripsi" maxlength="2000" placeholder="Ceritakan bahan, keunggulan, dan cocok untuk apa produk ini…" style="min-height:88px"></textarea>
+              <span class="ferr"></span>
+            </div>
+            <div class="field">
+              <label for="fJenis">Jenis barang <span style="color:var(--wine)">*</span></label>
+              <input type="text" id="fJenis" maxlength="60" list="jenisOptions" placeholder="mis. Atasan" required>
+              <datalist id="jenisOptions"></datalist>
+              <span class="ferr"></span>
+            </div>
+            <div class="field">
+              <label for="fHarga">Harga (Rp) <span style="color:var(--wine)">*</span></label>
+              <input type="number" id="fHarga" min="0" step="1000" placeholder="mis. 75000" required>
+              <span class="ferr"></span>
+            </div>
+            <div class="field full">
+              <label for="fFile">Gambar produk <small style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0">(JPG/JPEG/PNG · maks 5 MB)</small></label>
+              <input type="file" id="fFile" accept=".jpg,.jpeg,.png,image/jpeg,image/png">
+              <span class="ferr"></span>
+              <div class="imgpreview" id="imgPreview"></div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-foot">
+          <button type="button" class="btn btn-ghost" id="btnCancel">Batal</button>
+          <button type="submit" class="btn btn-primary" id="btnSave"><span id="btnSaveText">Simpan Produk</span></button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/store.js"></script>
+  <script src="js/catalog.js"></script>
+</body>
+</html>
