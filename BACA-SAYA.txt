@@ -1,0 +1,33 @@
+BLANK. — Custom Apparel Studio
+================================================
+
+Situs statis siap hosting. Tema koleksi: PANORAMA '26 (fajar,
+monsun, dataran, senja, kota, lapangan).
+
+CARA HOSTING DI GITHUB PAGES
+----------------------------
+1. Buat repository baru di GitHub (mis. "blank-website").
+2. Upload SELURUH isi zip ini ke root repository — file-file
+   sudah posisinya di root: index.html, home.html, product.html,
+   custom.html, collection.html, contact.html, css/, js/, img/,
+   logo.svg, robots.txt. Jangan dibungkus folder tambahan.
+3. Aktifkan Settings > Pages > Source: "Deploy from a branch",
+   Branch: main / (root).
+4. Situs live di https://<username>.github.io/blank-website/
+
+CATATAN
+-------
+- Sudah ada file .nojekyll di root (wajib, jangan dihapus).
+- Semua path relatif — bisa juga di-host di Netlify/Vercel/
+  Apache biasa tanpa konfigurasi.
+- Folder uploads/ hanya dipakai backend PHP (opsional); untuk
+  GitHub Pages boleh dihapus.
+- Gambar produk 1380x1656 px (3x stage studio), area desain
+  sudah tervalidasi 100% berada di dalam objek.
+
+KONTAK
+------
+WhatsApp : 0813-6783-6806
+Email    : afsarnavid2@gmail.com
+Alamat   : Komplek Geo Asri No. A-12, Jl. Raden Mochtar,
+           Sindanglaya, Cimenyan, Bandung Regency, West Java 40195
